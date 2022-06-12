@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+const cors = require("cors")
 const app = express();
 
 //route imports
@@ -7,12 +7,11 @@ const authRoute = require("./routes/auth");
 
 require("dotenv").config();
 
-const queryUser = require("./DB/db.main");
 
-app.use(express.json());
 app.use(cors({
   origin: '*'
 }));
+app.use(express.json());
 
 const PORT = process.env.PORT || 7000;
 

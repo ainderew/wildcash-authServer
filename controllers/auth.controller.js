@@ -8,8 +8,8 @@ const handleLogin = async (req, res) => {
   db.queryUser(userIdNumber, password, (results) => {
     // add bycrpt hasing and salting logic
   
-    // if (results.length === 0) return res.sendStatus(401);
-    // if (results instanceof Error) return res.sendStatus(500);
+    if (results.length === 0) return res.sendStatus(401);
+    if (results instanceof Error) return res.sendStatus(500);
 
     const accessToken = jwt.sign(
       { username: results[0].userIdNumber },
@@ -25,7 +25,7 @@ const handleLogin = async (req, res) => {
     db.insertRT(results[0].accID, refreshToken, (response) => {
       if (response instanceof Error) {
         console.log(response)
-        // return res.sendStatus(500);
+        return res.sendStatus(500);
       }
 
       return
