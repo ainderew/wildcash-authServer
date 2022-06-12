@@ -2,11 +2,11 @@
   "name": "wildcash-auth",
   "version": "1.0.0",
   "description": "",
-  "main": "authServer.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node authServer.js",
-    "devStart": "nodemon authServer.js"
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
   },
   "author": "Andrew Pinon",
   "license": "ISC",
