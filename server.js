@@ -15,7 +15,7 @@ app.use(cors());
 const PORT = process.env.PORT || 7000;
 
 app.get("/", (req, res) => {
-  res.statusCode(200);
+  res.sendStatus(200);
 });
 
 // app.post("/login", (req, res) => {
