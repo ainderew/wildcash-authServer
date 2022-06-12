@@ -38,8 +38,8 @@ const queryUser = (idnum, pwd, cb) => {
 };
 
 
-const insertRT = (accID, refreshToken) => {
-  const queryString = `INSERT INTO tblRefreshTokens
+const insertRT = (accID, refreshToken,cb) => {
+  const queryString = `INSERT INTO tblRefreshTokens (accID, refreshToken)
     VALUES (?,?)
   `;
 
