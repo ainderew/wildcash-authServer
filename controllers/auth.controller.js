@@ -2,7 +2,7 @@ const db = require("../DB/db.main");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const handleLogin = (req, res) => {
+const handleLogin = async (req, res) => {
   const { userIdNumber, password } = req.body;
 
   db.queryUser(userIdNumber, password, (results) => {
