@@ -32,14 +32,14 @@ const handleLogin = async (req, res) => {
       
     });
 
-    res.cookie(
-      "jwt",
-      { accessToken, refreshToken },
-      {
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 100,
-      }
-    );
+    // res.cookie(
+    //   "jwt",
+    //   { accessToken, refreshToken },
+    //   {
+    //     httpOnly: true,
+    //     maxAge: 24 * 60 * 60 * 100,
+    //   }
+    // );
 
     res.json(results);
   });
