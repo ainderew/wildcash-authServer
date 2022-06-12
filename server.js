@@ -10,7 +10,9 @@ require("dotenv").config();
 const queryUser = require("./DB/db.main");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 
 const PORT = process.env.PORT || 7000;
 
