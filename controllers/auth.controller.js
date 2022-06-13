@@ -12,12 +12,12 @@ const handleLogin = async (req, res) => {
     if (results instanceof Error) return res.sendStatus(500);
 
     const accessToken = jwt.sign(
-      { username: results[0].userIdNumber },
+      { userIdNumber: results[0].userIdNumber },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "10m" }
     );
     const refreshToken = jwt.sign(
-      { username: results[0].userIdNumber },
+      { userIdNumber: results[0].userIdNumber },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "1d" }
     );
@@ -32,16 +32,16 @@ const handleLogin = async (req, res) => {
       
     });
 
-    // res.cookie(
-    //   "jwt",
-    //   { accessToken, refreshToken },
-    //   {
-    //     httpOnly: true,
-    //     maxAge: 24 * 60 * 60 * 100,
-    //   }
-    // );
+    res.cookie(
+      "jwt",
+      { refreshToken },
+      {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 100,
+      }
+    );
 
-    res.json(results);
+    res.json({accessToken});
   });
 };
 
